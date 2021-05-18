@@ -1,0 +1,26 @@
+{
+    "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+    "baseUrl": "http://localhost:8080/fortesrh",
+    "video": false,
+    "viewportHeight": 960,
+    "viewportWidth": 1536,
+    "watchForFileChanges": false,
+    "screenshotOnRunFailure": false,
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "configFile": "reporter-config.json"
+    },
+    "env": {
+        "db": {
+            "username": "fortesrh",
+            "database": "fortesrh",
+            "hostname": "localhost",
+            "port": 55432
+        }
+    },
+    "user_name": "homolog",
+    "user_password": "s3creT-p@ssw0rd",
+    "company": "Empresa Padrão",
+    "company_id": 1,
+    "experimentalStudio": true
+}
