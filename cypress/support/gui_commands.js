@@ -281,7 +281,10 @@ Cypress.Commands.add('editar', (text) => {
 })
 
 Cypress.Commands.add('editarSolicitacao', (nome_Solicitação) => {
-    cy.get('#solicitacao').find(`td:contains("${nome_Solicitação}")`).parent().parent().find('.icon-awesome[title="Editar"]').click({ force: true })
+    cy
+        .get('#solicitacao').find(`td:contains("${nome_Solicitação}")`).parent().parent().find('.icon-awesome[title="Editar"]').click({ force: true })
+        .get('#estado').select('CE')
+        .get('#cidade').select('Selecione...')
 })
 
 Cypress.Commands.add('excluirSolicitacao', (solicitacao) => {

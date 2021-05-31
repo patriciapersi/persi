@@ -338,8 +338,12 @@ Cypress.Commands.add("insereCartao", () => {
     cy.exec_sql("insert into cartao values (nextval('cartao_sequence'), null, 'Mensagem Cartão', 'ANIVERSARIO', (select id from empresa where nome = 'Empresa Padrão'), null, false, null, true)")
 })
 
-Cypress.Commands.add("insereMotivoAfastamento", () => {
-    cy.exec_sql("insert into afastamento values (nextval('afastamento_sequence'), false, 'Licença por motivo de doença', false, true)")
+Cypress.Commands.add("insereMotivoAfastamento", (afastamento) => {
+    cy.exec_sql("insert into afastamento values (nextval('afastamento_sequence'), false, '" + afastamento.motivo +"', false, true)")
+})
+
+Cypress.Commands.add("insereAfastamento", () => {
+    cy.exec_sql("insert into colaboradorAfastamento values (nextval('colaboradorafastamento_sequence'), '01/01/2021', null, '', '', '', '', '1', '1', '')")
 })
 
 Cypress.Commands.add("inserirTamanhoEPI", (tamanhoEPI_nome) => {

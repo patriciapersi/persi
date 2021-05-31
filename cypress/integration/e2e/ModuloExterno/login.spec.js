@@ -44,4 +44,15 @@ describe('Tentativas de Login no Módulo Externo', () => {
         cy.contains('Li e aceito o Termo de Privacidade e Política de Segurança').click()
         cy.get('.ui-button-text').click()
     })
+
+    it.skip('Exibe erros ao tentar acessar sem informar a empresa', () => {
+        cy.visit('/externo/prepareLogin.action')
+        cy.get('h3').as('Mensagem').contains('Atenção, empresa não identificada.').should('be.visible')
+
+        cy.visit('/externo/prepareInsert.action')
+        cy.get('@Mensagem').contains('Atenção, empresa não identificada.').should('be.visible')
+
+        cy.visit('/externo/prepareRecuperaSenha')
+        cy.get('@Mensagem').contains('Atenção, empresa não identificada.').should('be.visible')
+    });
 })

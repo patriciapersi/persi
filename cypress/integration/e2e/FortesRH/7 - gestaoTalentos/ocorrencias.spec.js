@@ -1,15 +1,8 @@
 describe('Ocorrencias de Empregados', () => {
 
-    const ocorrencia = {
-        nome: chance.word(),
-        name: chance.word(),
-        colaborador_nome: chance.name(),
-        data: '01/01/2021'
-    }
-
     const ocorrencias = {
-        nome: chance.word(),
-        name: chance.word(),
+        nome: chance.word({ length: 5 }),
+        name: chance.word({ length: 5 }),
         colaborador_nome: chance.name(),
         data: '01/04/2021'
     }
@@ -23,7 +16,7 @@ describe('Ocorrencias de Empregados', () => {
             .navigate('/geral/colaboradorOcorrencia/list.action')
     });
 
-    it('Cadastrar Ocorrência Empregados', () => {
+    it('Cadastrar Ocorrência para Empregados', () => {
         cy
             .cadastrarOcorrenciaNova(ocorrencias)
         cy.contains(ocorrencias.name).should('be.visible')
