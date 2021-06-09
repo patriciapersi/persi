@@ -22,5 +22,6 @@
     "user_password": "s3creT-p@ssw0rd",
     "company": "Empresa Padrão",
     "company_id": 1,
-    "experimentalStudio": true
+    "experimentalStudio": true,
+    "projectId": "bo3zxk"
 }

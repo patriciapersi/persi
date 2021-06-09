@@ -982,3 +982,12 @@ Cypress.Commands.add('cadastrarOcorrencia', (ocorrencia) => {
     cy.get('#btnGravar').should('be.visible').and('be.enabled').click()
 })
 
+Cypress.Commands.add('clickButton', (button) => {
+    cy.get('button').contains(button).click()
+})
+
+Cypress.Commands.add('gravarIncompleto', (text) => {
+    cy.clickButton('Gravar')
+    cy.validaMensagem(text)
+})
+

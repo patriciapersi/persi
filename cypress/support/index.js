@@ -21,6 +21,7 @@ import './data-base_commands'
 import './util_commands'
 import 'cypress-file-upload'
 import { Chance } from 'chance';
+require('cypress-plugin-tab')
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

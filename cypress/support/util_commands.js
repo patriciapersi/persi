@@ -89,3 +89,8 @@ Cypress.Commands.add('confirmarDialogMessage', (text) => {
         cy.get(':nth-child(1) > .ui-button-text').should('contain', text).click()
     }
 })
+
+Cypress.Commands.add('validaMensagem', (text) => {
+    cy.get('#popup_message').should('contain', text)
+    cy.get('#popup_ok').click()
+})
