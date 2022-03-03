@@ -270,7 +270,7 @@ describe('Funcionalidade SST > CAT', () => {
         //Precisei inserir a wait, pois o sistema faz um load na pagina logo após selecionar a cat de origem. 
         //Como não precisa inserir mais nenhum dado, apenas precisa clicar em gravar é como se fosse rapido demais. é preciso da o play no próprio cypress para o teste continuar.
 
-        //cy.clickButton('Gravar')
+        cy.clickButton('Gravar')
 
 
     })
