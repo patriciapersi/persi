@@ -443,3 +443,17 @@ Cypress.Commands.add("insereOcorrencia", (ocorrencia) => {
 Cypress.Commands.add("insereOcorrenciaColaborador", (ocorrencia) => {
     cy.exec_sql("insert into colaboradorocorrencia values (nextval('colaboradorocorrencia_sequence'), '01/01/2021', '01/01/2021', null, (select id from colaborador where nome = '"+ ocorrencia.colaborador_nome + "'), (select id from ocorrencia where descricao = '"+ ocorrencia.nome + "'), null)")
 })
+
+Cypress.Commands.add("insereMedico", (med_sst) => {
+    cy.exec_sql("insert into profissionalSST (id, nome, numeroinscricao, orgaodeclasse, uf_id, codigoac, grupoac, cadastropendente) values (nextval('profissionalSST_sequence'), '"+ med_sst +"','102030', 1,1, null, '001', false)")
+})
+
+Cypress.Commands.add("insereCAT",(cat) => {
+    cy.exec_sql(
+        "insert into cat (id,data,colaborador_id,gerouafastamento,horario,foitreinadoparafuncao,usavaepi,tipoacidente,limitacaofuncional,tipoinscricao,horasTrabalhadasAntesAcidente,tipo,obito,comunicoupolicia,iniciatcat,tipolocal,logradouro,numero,bairro,cep,cidade_id,uf_id,possuiatestado,dataatendimento,horaatendimento,duracaotratamentoemdias,codcid,indicativointernacao,indicativoafastamento,descricaonaturezalesao_id,statusCadastroESocial,profissionalsst_id,situacaoGeradoraDoencaProfissional_id,estabelecimento_id) values (NEXTVAL('cat_sequence'), current_date, (select id from colaborador where nome = '"+ cat.colaboradorNome + "'), false,'08:00',false,false,1,false,3,'08:00',1,false,false,2,1,'Rua','1','Curio','60820060',946,1,true,'20/02/2021','08:30','2','S020',false, false,7,'HABITO_INTEGRADO',1,3,1)",
+        "insert into parteatingida (id,lateralidade,partecorpoatingida_id) values (nextval('parteatingida_sequence'),0,(select id from partecorpoatingida where descricao = 'Dedo')) ",
+        "insert into cat_parteatingida values ((select id from colaborador where nome =  '" + cat.colaboradorNome + "'),1)"
+        )
+
+
+})
